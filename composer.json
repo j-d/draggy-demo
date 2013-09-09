@@ -1,8 +1,8 @@
 {
-    "name": "jd/symfony-standard-draggy",
+    "name": "jd/draggy-demo",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution with Draggy bundled",
+    "description": "Draggy demo with the \"Symfony Standard Edition\" distribution bundled",
     "autoload": {
         "psr-0": { "": "src/" }
     },
