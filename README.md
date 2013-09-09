@@ -2,10 +2,15 @@ Draggy demo
 ===========
 
 Draggy is a code development tool and template engine that enables the user to create and maintain a functional
-Skelleton of an application.
+Skeleton of an application.
 
 If you don't want a demo, you can either get the Draggy package from [here](https://github.com/j-d/draggy) or
 download the [Symfony Standard Edition + Draggy bundle](https://github.com/j-d/symfony-standard-draggy).
+
+The demo is a basic Health System, which features classes, class inheritance, one-to-one, one-to-many and many-to-many
+relationships, and it was inspired by the sample found on the book
+[Systems Analysis and Design with UML](http://eu.wiley.com/WileyCDA/WileyTitle/productCd-0470074787.html) by
+[Wiley](http://www.wiley.com).
 
 Installation (if you know what you are doing)
 ---------------------------------------------
