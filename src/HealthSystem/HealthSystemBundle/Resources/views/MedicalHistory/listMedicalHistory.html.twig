@@ -1,0 +1,55 @@
+{# Resources/views/MedicalHistory/listMedicalHistory.html.twig #}
+
+{% extends 'MockBundle:Default:navigationPage.html.twig' %}
+
+{% block title %}{{ parent() }} | View medical histories{% endblock %}
+
+{% block pageTitle %}View medical histories{% endblock %}
+
+{% block navigation %}
+    <ul class="nav nav-list">
+        <li class="nav-header">MedicalHistories</li>
+        <li><a href="{{ path('healthsystem_medicalhistory_add') }}">Add medical history</a></li>
+        <li><a href="{{ path('healthsystem_medicalhistory') }}">View medical histories</a></li>
+        <li class="divider"></li>
+        <li class="nav-header">Other</li>
+        <li><a href="{{ path('healthsystem_nurse') }}">Nurses</a></li>
+        <li><a href="{{ path('healthsystem_doctor') }}">Doctors</a></li>
+        <li><a href="{{ path('healthsystem_patient') }}">Patients</a></li>
+        <li><a href="{{ path('healthsystem_symptom') }}">Symptoms</a></li>
+        <li><a href="{{ path('healthsystem_appointment') }}">Appointments</a></li>
+        <li><a href="{{ path('healthsystem_bill') }}">Bills</a></li>
+        <li><a href="{{ path('healthsystem_illness') }}">Illnesses</a></li>
+        <li><a href="{{ path('healthsystem_treatment') }}">Treatments</a></li>
+    </ul>
+{% endblock %}
+
+{% block contents %}
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>PatientId</th>
+                <th>HeartDisease</th>
+                <th>HighBloodPressure</th>
+                <th>Diabetes</th>
+                <th>Allergies</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for medicalHistory in medicalHistories %}
+                <tr>
+                    <td>{{ medicalHistory.getPatientId() }}</td>
+                    <td>{{ medicalHistory.getHeartDisease() }}</td>
+                    <td>{{ medicalHistory.getHighBloodPressure() }}</td>
+                    <td>{{ medicalHistory.getDiabetes() }}</td>
+                    <td>{{ medicalHistory.getAllergies() }}</td>
+                    <td>
+                        <a href="{{ path('healthsystem_medicalhistory_edit', {'id': medicalHistory.getPatientId().getId()}) }}">Edit</a>
+                        <a href="{{ path('healthsystem_medicalhistory_delete', {'id': medicalHistory.getPatientId().getId()}) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

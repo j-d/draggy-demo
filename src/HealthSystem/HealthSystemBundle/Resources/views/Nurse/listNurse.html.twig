@@ -1,0 +1,57 @@
+{# Resources/views/Nurse/listNurse.html.twig #}
+
+{% extends 'MockBundle:Default:navigationPage.html.twig' %}
+
+{% block title %}{{ parent() }} | View nurses{% endblock %}
+
+{% block pageTitle %}View nurses{% endblock %}
+
+{% block navigation %}
+    <ul class="nav nav-list">
+        <li class="nav-header">Nurses</li>
+        <li><a href="{{ path('healthsystem_nurse_add') }}">Add nurse</a></li>
+        <li><a href="{{ path('healthsystem_nurse') }}">View nurses</a></li>
+        <li class="divider"></li>
+        <li class="nav-header">Other</li>
+        <li><a href="{{ path('healthsystem_doctor') }}">Doctors</a></li>
+        <li><a href="{{ path('healthsystem_patient') }}">Patients</a></li>
+        <li><a href="{{ path('healthsystem_symptom') }}">Symptoms</a></li>
+        <li><a href="{{ path('healthsystem_medicalhistory') }}">Medical Histories</a></li>
+        <li><a href="{{ path('healthsystem_appointment') }}">Appointments</a></li>
+        <li><a href="{{ path('healthsystem_bill') }}">Bills</a></li>
+        <li><a href="{{ path('healthsystem_illness') }}">Illnesses</a></li>
+        <li><a href="{{ path('healthsystem_treatment') }}">Treatments</a></li>
+    </ul>
+{% endblock %}
+
+{% block contents %}
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lastname</th>
+                <th>Firstname</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Birthdate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for nurse in nurses %}
+                <tr>
+                    <td>{{ nurse.getId() }}</td>
+                    <td>{{ nurse.getLastname() }}</td>
+                    <td>{{ nurse.getFirstname() }}</td>
+                    <td>{{ nurse.getAddress() }}</td>
+                    <td>{{ nurse.getPhone() }}</td>
+                    <td>{{ nurse.getBirthdate() | date('d-M-Y') }}</td>
+                    <td>
+                        <a href="{{ path('healthsystem_nurse_edit', {'id': nurse.getId()}) }}">Edit</a>
+                        <a href="{{ path('healthsystem_nurse_delete', {'id': nurse.getId()}) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,30 @@
+{# Resources/views/Bill/editBill.html.twig #}
+
+{% extends 'MockBundle:Default:navigationPage.html.twig' %}
+
+{% block title %}{{ parent() }} | Edit bill{% endblock %}
+
+{% block pageTitle %}Edit bill{% endblock %}
+
+{% block navigation %}
+    <ul class="nav nav-list">
+        <li class="nav-header">Bills</li>
+        <li><a href="{{ path('healthsystem_bill_add') }}">Add bill</a></li>
+        <li><a href="{{ path('healthsystem_bill') }}">View bills</a></li>
+        <li class="divider"></li>
+        <li class="nav-header">Other</li>
+        <li><a href="{{ path('healthsystem_nurse') }}">Nurses</a></li>
+        <li><a href="{{ path('healthsystem_doctor') }}">Doctors</a></li>
+        <li><a href="{{ path('healthsystem_patient') }}">Patients</a></li>
+        <li><a href="{{ path('healthsystem_symptom') }}">Symptoms</a></li>
+        <li><a href="{{ path('healthsystem_medicalhistory') }}">Medical Histories</a></li>
+        <li><a href="{{ path('healthsystem_appointment') }}">Appointments</a></li>
+        <li><a href="{{ path('healthsystem_illness') }}">Illnesses</a></li>
+        <li><a href="{{ path('healthsystem_treatment') }}">Treatments</a></li>
+    </ul>
+{% endblock %}
+
+{% block contents %}
+    {{ parent() }}
+    {{ form(form) }}
+{% endblock %}

@@ -1,0 +1,49 @@
+{# Resources/views/Illness/listIllness.html.twig #}
+
+{% extends 'MockBundle:Default:navigationPage.html.twig' %}
+
+{% block title %}{{ parent() }} | View illnesses{% endblock %}
+
+{% block pageTitle %}View illnesses{% endblock %}
+
+{% block navigation %}
+    <ul class="nav nav-list">
+        <li class="nav-header">Illnesses</li>
+        <li><a href="{{ path('healthsystem_illness_add') }}">Add illness</a></li>
+        <li><a href="{{ path('healthsystem_illness') }}">View illnesses</a></li>
+        <li class="divider"></li>
+        <li class="nav-header">Other</li>
+        <li><a href="{{ path('healthsystem_nurse') }}">Nurses</a></li>
+        <li><a href="{{ path('healthsystem_doctor') }}">Doctors</a></li>
+        <li><a href="{{ path('healthsystem_patient') }}">Patients</a></li>
+        <li><a href="{{ path('healthsystem_symptom') }}">Symptoms</a></li>
+        <li><a href="{{ path('healthsystem_medicalhistory') }}">Medical Histories</a></li>
+        <li><a href="{{ path('healthsystem_appointment') }}">Appointments</a></li>
+        <li><a href="{{ path('healthsystem_bill') }}">Bills</a></li>
+        <li><a href="{{ path('healthsystem_treatment') }}">Treatments</a></li>
+    </ul>
+{% endblock %}
+
+{% block contents %}
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for illness in illnesses %}
+                <tr>
+                    <td>{{ illness.getCode() }}</td>
+                    <td>{{ illness.getDescription() }}</td>
+                    <td>
+                        <a href="{{ path('healthsystem_illness_edit', {'code': illness.getCode()}) }}">Edit</a>
+                        <a href="{{ path('healthsystem_illness_delete', {'code': illness.getCode()}) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

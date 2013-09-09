@@ -1,0 +1,59 @@
+{# Resources/views/Doctor/listDoctor.html.twig #}
+
+{% extends 'MockBundle:Default:navigationPage.html.twig' %}
+
+{% block title %}{{ parent() }} | View doctors{% endblock %}
+
+{% block pageTitle %}View doctors{% endblock %}
+
+{% block navigation %}
+    <ul class="nav nav-list">
+        <li class="nav-header">Doctors</li>
+        <li><a href="{{ path('healthsystem_doctor_add') }}">Add doctor</a></li>
+        <li><a href="{{ path('healthsystem_doctor') }}">View doctors</a></li>
+        <li class="divider"></li>
+        <li class="nav-header">Other</li>
+        <li><a href="{{ path('healthsystem_nurse') }}">Nurses</a></li>
+        <li><a href="{{ path('healthsystem_patient') }}">Patients</a></li>
+        <li><a href="{{ path('healthsystem_symptom') }}">Symptoms</a></li>
+        <li><a href="{{ path('healthsystem_medicalhistory') }}">Medical Histories</a></li>
+        <li><a href="{{ path('healthsystem_appointment') }}">Appointments</a></li>
+        <li><a href="{{ path('healthsystem_bill') }}">Bills</a></li>
+        <li><a href="{{ path('healthsystem_illness') }}">Illnesses</a></li>
+        <li><a href="{{ path('healthsystem_treatment') }}">Treatments</a></li>
+    </ul>
+{% endblock %}
+
+{% block contents %}
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Id</th>
+                <th>Lastname</th>
+                <th>Firstname</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Birthdate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+                <tr>
+                    <td>{{ doctor.getEmail() }}</td>
+                    <td>{{ doctor.getId() }}</td>
+                    <td>{{ doctor.getLastname() }}</td>
+                    <td>{{ doctor.getFirstname() }}</td>
+                    <td>{{ doctor.getAddress() }}</td>
+                    <td>{{ doctor.getPhone() }}</td>
+                    <td>{{ doctor.getBirthdate() | date('d-M-Y') }}</td>
+                    <td>
+                        <a href="{{ path('healthsystem_doctor_edit', {'id': doctor.getId()}) }}">Edit</a>
+                        <a href="{{ path('healthsystem_doctor_delete', {'id': doctor.getId()}) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

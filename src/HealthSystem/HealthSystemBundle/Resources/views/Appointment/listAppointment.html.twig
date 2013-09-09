@@ -1,0 +1,59 @@
+{# Resources/views/Appointment/listAppointment.html.twig #}
+
+{% extends 'MockBundle:Default:navigationPage.html.twig' %}
+
+{% block title %}{{ parent() }} | View appointments{% endblock %}
+
+{% block pageTitle %}View appointments{% endblock %}
+
+{% block navigation %}
+    <ul class="nav nav-list">
+        <li class="nav-header">Appointments</li>
+        <li><a href="{{ path('healthsystem_appointment_add') }}">Add appointment</a></li>
+        <li><a href="{{ path('healthsystem_appointment') }}">View appointments</a></li>
+        <li class="divider"></li>
+        <li class="nav-header">Other</li>
+        <li><a href="{{ path('healthsystem_nurse') }}">Nurses</a></li>
+        <li><a href="{{ path('healthsystem_doctor') }}">Doctors</a></li>
+        <li><a href="{{ path('healthsystem_patient') }}">Patients</a></li>
+        <li><a href="{{ path('healthsystem_symptom') }}">Symptoms</a></li>
+        <li><a href="{{ path('healthsystem_medicalhistory') }}">Medical Histories</a></li>
+        <li><a href="{{ path('healthsystem_bill') }}">Bills</a></li>
+        <li><a href="{{ path('healthsystem_illness') }}">Illnesses</a></li>
+        <li><a href="{{ path('healthsystem_treatment') }}">Treatments</a></li>
+    </ul>
+{% endblock %}
+
+{% block contents %}
+    <table class="table table-hover table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>PatientId</th>
+                <th>DoctorId</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Reason</th>
+                <th>Bill</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.getId() }}</td>
+                    <td>{{ appointment.getPatientId() }}</td>
+                    <td>{{ appointment.getDoctorId() }}</td>
+                    <td>{{ appointment.getTime() | date('H:i:s') }}</td>
+                    <td>{{ appointment.getDate() | date('d-M-Y') }}</td>
+                    <td>{{ appointment.getReason() }}</td>
+                    <td>{{ appointment.getBill() }}</td>
+                    <td>
+                        <a href="{{ path('healthsystem_appointment_edit', {'id': appointment.getId()}) }}">Edit</a>
+                        <a href="{{ path('healthsystem_appointment_delete', {'id': appointment.getId()}) }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

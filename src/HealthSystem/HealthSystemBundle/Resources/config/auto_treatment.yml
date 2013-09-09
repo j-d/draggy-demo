@@ -1,0 +1,33 @@
+# THIS IS AN AUTOMATICALLY GENERATED BASE FILE AND SHOULD NOT BE MANUALLY EDITED
+# All user content should be placed within <user-additions part="(name)"></user-additions>
+
+# This file was automatically generated with 'Autocode'
+# by Jose Diaz-Angulo <jose@diazangulo.com>
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with the package's source code.
+
+### Treatment ###
+# <user-additions part="list">
+healthsystem_treatment:
+    pattern:  /treatment
+    defaults: { _controller: HealthSystemBundle:Treatment:list }
+# </user-additions>
+
+# <user-additions part="create">
+healthsystem_treatment_add:
+    pattern:  /treatment/add
+    defaults: { _controller: HealthSystemBundle:Treatment:add }
+# </user-additions>
+
+# <user-additions part="edit">
+healthsystem_treatment_edit:
+    pattern:  /treatment/edit/{id}
+    defaults: { _controller: HealthSystemBundle:Treatment:edit }
+# </user-additions>
+
+# <user-additions part="delete">
+healthsystem_treatment_delete:
+    pattern:  /treatment/delete/{id}
+    defaults: { _controller: HealthSystemBundle:Treatment:delete }
+# </user-additions>

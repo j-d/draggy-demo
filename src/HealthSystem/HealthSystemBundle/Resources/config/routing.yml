@@ -1,0 +1,50 @@
+health_system_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: HealthSystemBundle:Default:index }
+
+# <system-additions part="routes">
+### Nurse ###
+HealthSystemBundle_Nurse:
+    resource: "@HealthSystemBundle/Resources/config/auto_nurse.yml"
+    prefix:   /
+
+### Doctor ###
+HealthSystemBundle_Doctor:
+    resource: "@HealthSystemBundle/Resources/config/auto_doctor.yml"
+    prefix:   /
+
+### Patient ###
+HealthSystemBundle_Patient:
+    resource: "@HealthSystemBundle/Resources/config/auto_patient.yml"
+    prefix:   /
+
+### Symptom ###
+HealthSystemBundle_Symptom:
+    resource: "@HealthSystemBundle/Resources/config/auto_symptom.yml"
+    prefix:   /
+
+### MedicalHistory ###
+HealthSystemBundle_MedicalHistory:
+    resource: "@HealthSystemBundle/Resources/config/auto_medicalHistory.yml"
+    prefix:   /
+
+### Appointment ###
+HealthSystemBundle_Appointment:
+    resource: "@HealthSystemBundle/Resources/config/auto_appointment.yml"
+    prefix:   /
+
+### Bill ###
+HealthSystemBundle_Bill:
+    resource: "@HealthSystemBundle/Resources/config/auto_bill.yml"
+    prefix:   /
+
+### Illness ###
+HealthSystemBundle_Illness:
+    resource: "@HealthSystemBundle/Resources/config/auto_illness.yml"
+    prefix:   /
+
+### Treatment ###
+HealthSystemBundle_Treatment:
+    resource: "@HealthSystemBundle/Resources/config/auto_treatment.yml"
+    prefix:   /
+# </system-additions>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<draggy>
+	<project>
+		<language>php</language>
+		<framework>symfony2</framework>
+		<orm>symfony2-doctrine2</orm>
+		<description>Sample model inspired by "Systems Analysis and Design with UML" 3rd edition by Wiley press.</description>
+	</project>
+	<module name="HealthSystemBundle" left="54" top="43" width="1179" height="772">
+		<class name="Nurse" top="527" left="30" inheritingFrom="HealthSystemBundle\Employee" repository="true" form="true" controller="true" fixtures="true" toString="lastname" crud="CRUD" routes="true">
+			<attribute id="attribute" inherited="true"/>
+			<attribute id="attribute1" inherited="true"/>
+			<attribute id="attribute2" inherited="true"/>
+			<attribute id="attribute3" inherited="true"/>
+			<attribute id="attribute4" inherited="true"/>
+			<attribute id="attribute5" inherited="true"/>
+		</class>
+		<class name="Doctor" top="523" left="243" inheritingFrom="HealthSystemBundle\Employee" repository="true" form="true" controller="true" fixtures="true" toString="lastname" crud="CRUD" routes="true">
+			<attribute id="attribute" inherited="true"/>
+			<attribute id="attribute1" inherited="true"/>
+			<attribute id="attribute2" inherited="true"/>
+			<attribute id="attribute3" inherited="true"/>
+			<attribute id="attribute4" inherited="true"/>
+			<attribute id="attribute5" inherited="true"/>
+			<attribute id="attribute6" name="email" type="string" size="50" email="true"/>
+		</class>
+		<class name="Patient" top="238" left="363" inheritingFrom="HealthSystemBundle\Person" repository="true" form="true" controller="true" fixtures="true" toString="firstname" crud="CRUD" routes="true">
+			<attribute id="attribute" inherited="true"/>
+			<attribute id="attribute1" inherited="true"/>
+			<attribute id="attribute2" inherited="true"/>
+			<attribute id="attribute3" inherited="true"/>
+			<attribute id="attribute4" inherited="true"/>
+			<attribute id="attribute5" inherited="true"/>
+		</class>
+		<class name="Symptom" top="454" left="666" repository="true" form="true" controller="true" fixtures="true" toString="name" crud="CRUD" routes="true">
+			<attribute id="attribute9" name="name" type="string" size="50" primary="true"/>
+		</class>
+		<class name="PatientToSymptom" top="443" left="429" manyToMany="true">
+			<attribute id="attribute10" name="patients" type="integer" foreign="true"/>
+			<attribute id="attribute11" name="symptoms" type="string" size="50" foreign="true"/>
+		</class>
+		<class name="MedicalHistory" top="28" left="460" repository="true" form="true" controller="true" fixtures="true" crud="CRUD" routes="true">
+			<attribute id="attribute17" name="patientId" type="integer" primary="true" foreign="true"/>
+			<attribute id="attribute12" name="heartDisease" type="text" null="true"/>
+			<attribute id="attribute13" name="highBloodPressure" type="text" null="true"/>
+			<attribute id="attribute14" name="diabetes" type="text" null="true"/>
+			<attribute id="attribute15" name="allergies" type="text" null="true"/>
+		</class>
+		<class name="Appointment" top="229" left="610" repository="true" form="true" controller="true" fixtures="true" crud="CRUD" routes="true">
+			<attribute id="attribute26" name="id" type="integer" primary="true" autoincrement="true"/>
+			<attribute id="attribute18" name="patientId" type="integer" foreign="true"/>
+			<attribute id="attribute19" name="doctorId" type="integer" foreign="true"/>
+			<attribute id="attribute20" name="time" type="time"/>
+			<attribute id="attribute21" name="date" type="date"/>
+			<attribute id="attribute22" name="reason" type="string" size="50"/>
+		</class>
+		<class name="Bill" top="242" left="840" repository="true" form="true" controller="true" fixtures="true" crud="CRUD" routes="true">
+			<attribute id="attribute27" name="appointmentId" type="integer" primary="true" foreign="true"/>
+			<attribute id="attribute23" name="date" type="date"/>
+			<attribute id="attribute24" name="amount" type="decimal"/>
+			<attribute id="attribute25" name="purpose" type="string" size="50"/>
+		</class>
+		<class name="Illness" top="452" left="937" repository="true" form="true" controller="true" fixtures="true" toString="code" crud="CRUD" routes="true">
+			<attribute id="attribute28" name="code" type="string" size="20" primary="true"/>
+			<attribute id="attribute29" name="description" type="string" size="100"/>
+		</class>
+		<class name="Treatment" top="585" left="767" repository="true" form="true" controller="true" fixtures="true" crud="CRUD" routes="true">
+			<attribute id="attribute35" name="id" type="integer" primary="true" autoincrement="true"/>
+			<attribute id="attribute33" name="symptomName" type="string" size="50" foreign="true"/>
+			<attribute id="attribute34" name="illnessCode" type="string" size="20" foreign="true"/>
+			<attribute id="attribute30" name="medication" type="string" size="100" null="true"/>
+			<attribute id="attribute31" name="instructions" type="text" null="true"/>
+			<attribute id="attribute32" name="symptomSeverity" type="text" null="true"/>
+		</class>
+		<abstract name="Person" top="18" left="223">
+			<attribute id="attribute" name="id" type="integer" primary="true" autoincrement="true"/>
+			<attribute id="attribute1" name="lastname" type="string" size="25"/>
+			<attribute id="attribute2" name="firstname" type="string" size="25"/>
+			<attribute id="attribute3" name="address" type="text"/>
+			<attribute id="attribute4" name="phone" type="string" size="20" null="true"/>
+			<attribute id="attribute5" name="birthdate" type="date"/>
+		</abstract>
+		<abstract name="Employee" top="249" left="125" inheritingFrom="HealthSystemBundle\Person">
+			<attribute id="attribute" inherited="true"/>
+			<attribute id="attribute1" inherited="true"/>
+			<attribute id="attribute2" inherited="true"/>
+			<attribute id="attribute3" inherited="true"/>
+			<attribute id="attribute4" inherited="true"/>
+			<attribute id="attribute5" inherited="true"/>
+		</abstract>
+	</module>
+	<loose>
+	</loose>
+	<relationships>
+		<relation from="HealthSystemBundle\Employee" to="HealthSystemBundle\Person" type="inheritance"/>
+		<relation from="HealthSystemBundle\Nurse" to="HealthSystemBundle\Employee" type="inheritance"/>
+		<relation from="HealthSystemBundle\Doctor" to="HealthSystemBundle\Employee" type="inheritance"/>
+		<relation from="HealthSystemBundle\Patient" to="HealthSystemBundle\Person" type="inheritance"/>
+		<relation from="HealthSystemBundle\Patient" fromAttribute="id" to="HealthSystemBundle\PatientToSymptom" toAttribute="patients" type="one-to-many" persist="both" remove="inverse"/>
+		<relation from="HealthSystemBundle\Patient" fromAttribute="id" to="HealthSystemBundle\MedicalHistory" toAttribute="patientId" type="one-to-one" persist="both" remove="inverse"/>
+		<relation from="HealthSystemBundle\Doctor" fromAttribute="id" to="HealthSystemBundle\Appointment" toAttribute="doctorId" type="one-to-many" persist="both" remove="inverse" broken="true"/>
+		<relation from="HealthSystemBundle\Patient" fromAttribute="id" to="HealthSystemBundle\Appointment" toAttribute="patientId" type="one-to-many" persist="both" remove="inverse"/>
+		<relation from="HealthSystemBundle\Appointment" fromAttribute="id" to="HealthSystemBundle\Bill" toAttribute="appointmentId" type="one-to-one" persist="both" remove="inverse"/>
+		<relation from="HealthSystemBundle\Illness" fromAttribute="code" to="HealthSystemBundle\Treatment" toAttribute="illnessCode" type="one-to-many" persist="both" remove="inverse"/>
+		<relation from="HealthSystemBundle\Symptom" fromAttribute="name" to="HealthSystemBundle\PatientToSymptom" toAttribute="symptoms" type="one-to-many" persist="both" remove="owner"/>
+		<relation from="HealthSystemBundle\Symptom" fromAttribute="name" to="HealthSystemBundle\Treatment" toAttribute="symptomName" type="one-to-many" persist="both" remove="inverse"/>
+	</relationships>
+	<autocode>
+		<properties>
+			<overwrite>true</overwrite>
+			<delete-unmapped>true</delete-unmapped>
+			<base>true</base>
+			<validation>true</validation>
+		</properties>
+		<configurations>
+			<namespace>HealthSystem</namespace>
+		</configurations>
+		<templates>
+			<entity/>
+			<entity-base/>
+			<interface/>
+			<trait/>
+			<form/>
+			<form-base/>
+			<crud-create/>
+			<crud-read/>
+			<crud-update/>
+			<controller/>
+			<fixtures/>
+			<routes/>
+			<routes-routing/>
+			<repository/>
+		</templates>
+	</autocode>
+</draggy>
