@@ -21,13 +21,13 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 //use Doctrine\Common\Collections\ArrayCollection;
 
-use HealthSystem\HealthSystemBundle\Entity\AppointmentRepository;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 use HealthSystem\HealthSystemBundle\Entity\Bill;
 // use HealthSystem\HealthSystemBundle\Entity\Appointment;
 // <user-additions part="use">
+use HealthSystem\HealthSystemBundle\Entity\AppointmentRepository;
 // </user-additions>
 
 /**

@@ -21,8 +21,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 //use Doctrine\Common\Collections\ArrayCollection;
 
-use HealthSystem\HealthSystemBundle\Entity\DoctorRepository;
-use HealthSystem\HealthSystemBundle\Entity\PatientRepository;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -31,6 +29,8 @@ use HealthSystem\HealthSystemBundle\Entity\Appointment;
 // use HealthSystem\HealthSystemBundle\Entity\Doctor;
 // use HealthSystem\HealthSystemBundle\Entity\Bill;
 // <user-additions part="use">
+use HealthSystem\HealthSystemBundle\Entity\DoctorRepository;
+use HealthSystem\HealthSystemBundle\Entity\PatientRepository;
 // </user-additions>
 
 /**

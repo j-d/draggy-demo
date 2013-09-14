@@ -16,13 +16,11 @@
 
 namespace HealthSystem\HealthSystemBundle\DataFixtures\ORM;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 //use Doctrine\Common\Collections\ArrayCollection;
 
-use HealthSystem\HealthSystemBundle\Entity\SymptomRepository;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -31,6 +29,8 @@ use HealthSystem\HealthSystemBundle\Entity\Patient;
 // use HealthSystem\HealthSystemBundle\Entity\MedicalHistory;
 // use HealthSystem\HealthSystemBundle\Entity\Appointment;
 // <user-additions part="use">
+use Doctrine\Common\Collections\ArrayCollection;
+use HealthSystem\HealthSystemBundle\Entity\SymptomRepository;
 // </user-additions>
 
 /**

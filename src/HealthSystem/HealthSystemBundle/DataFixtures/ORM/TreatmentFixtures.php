@@ -21,8 +21,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 //use Doctrine\Common\Collections\ArrayCollection;
 
-use HealthSystem\HealthSystemBundle\Entity\IllnessRepository;
-use HealthSystem\HealthSystemBundle\Entity\SymptomRepository;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -30,6 +28,8 @@ use HealthSystem\HealthSystemBundle\Entity\Treatment;
 // use HealthSystem\HealthSystemBundle\Entity\Symptom;
 // use HealthSystem\HealthSystemBundle\Entity\Illness;
 // <user-additions part="use">
+use HealthSystem\HealthSystemBundle\Entity\IllnessRepository;
+use HealthSystem\HealthSystemBundle\Entity\SymptomRepository;
 // </user-additions>
 
 /**
